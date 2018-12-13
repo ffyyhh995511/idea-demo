@@ -2,7 +2,7 @@ package org.fyh.idea.demo.model;
 
 import java.io.Serializable;
 
-public class Student implements Serializable {
+public class Student {
     private Integer id;
 
     private String firstName;
@@ -71,5 +71,18 @@ public class Student implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", age=" + age +
+                ", lastName='" + lastName + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", sex='" + sex + '\'' +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

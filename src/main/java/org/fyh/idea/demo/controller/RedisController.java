@@ -34,7 +34,7 @@ public class RedisController {
 
     /**
      * @Author fangyunhe
-     * @Description
+     * @Description String类型操作
      * @Date 2018-12-05 14:35:20
      * @Param key
      * @param value
@@ -47,16 +47,25 @@ public class RedisController {
     }
 
     /**
-     *
-     * @param key
-     * @return
-     */
+     * @Author fangyunhe
+     * @Description String类型操作
+     * @Date 2018-12-13 10:02:25
+     * @Param
+     * @return org.fyh.idea.demo.response.Response<java.lang.Object>
+     **/
     @GetMapping(value = "/getString")
     public Response<Object> getString(String key) {
         String value = stringRedisTemplate.opsForValue().get(key);
         return Response.successResponse(value);
     }
 
+    /**
+     * @Author fangyunhe
+     * @Description Set类型操作
+     * @Date 2018-12-13 10:02:34
+     * @Param
+     * @return org.fyh.idea.demo.response.Response<java.lang.Object>
+     **/
     @GetMapping(value = "/sadd")
     public Response<Object> sadd(String key){
         Student student1 = studentService.selectByPrimaryKey(1);
@@ -65,6 +74,13 @@ public class RedisController {
         return Response.successResponse(add);
     }
 
+    /**
+     * @Author fangyunhe
+     * @Description Set 类型操作
+     * @Date 2018-12-13 10:02:47
+     * @Param
+     * @return org.fyh.idea.demo.response.Response<java.lang.Object>
+     **/
     @GetMapping(value = "/sget")
     public Response<Object> sget(String key){
         Set members = redisTemplate.opsForSet().members(key);
